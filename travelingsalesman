@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <limits.h>
+
+#define MAX_CITIES 10
+
+int cities[MAX_CITIES][MAX_CITIES];
+int path[MAX_CITIES];
+int min_distance = INT_MAX;
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void calculate_distance(int n) {
+    int distance = 0;
+    for (int i = 0; i < n - 1; ++i) {
+        distance += cities[path[i]][path[i + 1]];
+    }
+    distance += cities[path[n - 1]][path[0]]; 
+    if (distance < min_distance) {
+        min_distance = distance;
+    }
+}
+
+void permute(int cities_count, int start) {
+    if (start == cities_count) {
+        calculate_distance(cities_count);
+        return;
+    }
+
+    for (int i = start; i < cities_count; ++i) {
+        swap(&path[i], &path[start]);
+        permute(cities_count, start + 1);
+        swap(&path[i], &path[start]);
+    }
+}
+
+int main() {
+    int cities_count;
+    printf("Enter the number of cities: ");
+    scanf("%d", &cities_count);
+
+    printf("Enter the distances between cities:\n");
+    for (int i = 0; i < cities_count; ++i) {
+        for (int j = 0; j < cities_count; ++j) {
+            scanf("%d", &cities[i][j]);
+        }
+    }
+
+    printf("Enter the starting city (index): ");
+    int start_city;
+    scanf("%d", &start_city);
+
+    for (int i = 0; i < cities_count; ++i) {
+        path[i] = i;
+    }
+
+    permute(cities_count, start_city);
+
+    printf("Minimum distance for the TSP: %d\n", min_distance);
+
+    return 0;
+}
