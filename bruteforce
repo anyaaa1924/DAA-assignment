@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <string.h>
+
+void brute_force_string_matching(const char *text, const char *pattern) {
+    int text_length = strlen(text);
+    int pattern_length = strlen(pattern);
+    
+    for (int i = 0; i <= text_length - pattern_length; ++i) {
+        int j;
+        for (j = 0; j < pattern_length; ++j) {
+            if (text[i + j] != pattern[j]) {
+                break;
+            }
+        }
+        if (j == pattern_length) {
+            printf("Pattern found at index %d\n", i);
+        }
+    }
+}
+
+int main() {
+    const char *text = "AABBCAABCABBAA";
+    const char *pattern = "AABA";
+    
+    printf("Text: %s\n", text);
+    printf("Pattern: %s\n", pattern);
+    
+    printf("Occurrences:\n");
+    brute_force_string_matching(text, pattern);
+    
+    return 0;
+}
