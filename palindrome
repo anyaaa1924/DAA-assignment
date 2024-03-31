@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool is_alphanumeric(char c) {
+    return isalnum(c);
+}
+
+bool is_palindrome(const char *s) {
+    int left = 0;
+    int right = strlen(s) - 1;
+    
+    while (left < right) {
+        while (!is_alphanumeric(s[left]) && left < right) {
+            left++;
+        }
+        while (!is_alphanumeric(s[right]) && left < right) {
+            right--;
+        }
+        
+        if (tolower(s[left]) != tolower(s[right])) {
+            return false;
+        }
+        
+        left++;
+        right--;
+    }
+    
+    return true;
+}
+
+int main() {
+    const char *str1 = "akika";
+    const char *str2 = "race a car";
+    
+    printf("%s: %s\n", str1, is_palindrome(str1) ? "Palindrome" : "Not a palindrome");
+    printf("%s: %s\n", str2, is_palindrome(str2) ? "Palindrome" : "Not a palindrome");
+    
+    return 0;
+}
