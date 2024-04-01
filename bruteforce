@@ -19,11 +19,11 @@ void brute_force_string_matching(const char *text, const char *pattern) {
 }
 
 int main() {
-    const char *text = "AABBCAABCABBAA";
-    const char *pattern = "AABA";
+    const char *text = "hello everynyan how are u";
+    const char *pattern = "everynyan";
     
-    printf("Text: %s\n", text);
-    printf("Pattern: %s\n", pattern);
+    printf("The entered text: %s\n", text);
+    printf("Choose pattern: %s\n", pattern);
     
     printf("Occurrences:\n");
     brute_force_string_matching(text, pattern);
