@@ -32,7 +32,7 @@ bool is_palindrome(const char *s) {
 
 int main() {
     const char *str1 = "akika";
-    const char *str2 = "race a car";
+    const char *str2 = "ananya";
     
     printf("%s: %s\n", str1, is_palindrome(str1) ? "Palindrome" : "Not a palindrome");
     printf("%s: %s\n", str2, is_palindrome(str2) ? "Palindrome" : "Not a palindrome");
