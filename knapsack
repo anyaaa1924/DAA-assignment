@@ -12,7 +12,7 @@ int max(int a, int b) {
 }
 
 int knapsack(Item items[], int n, int capacity) {
-    // Base case: If there are no items or the capacity is 0, return 0
+
     if (n == 0 || capacity == 0) {
         return 0;
     }
