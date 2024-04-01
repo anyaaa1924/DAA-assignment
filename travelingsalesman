@@ -59,7 +59,7 @@ int main() {
 
     permute(cities_count, start_city);
 
-    printf("Minimum distance for the TSP: %d\n", min_distance);
+    printf("Minimum distance for the shortest path: %d\n", min_distance);
 
     return 0;
 }
