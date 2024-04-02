@@ -39,17 +39,17 @@ void permute(int cities_count, int start) {
 
 int main() {
     int cities_count;
-    printf("Enter the number of cities: ");
+    printf("Enter number of cities: ");
     scanf("%d", &cities_count);
 
-    printf("Enter the distances between cities:\n");
+    printf("Enter distance between cities:\n");
     for (int i = 0; i < cities_count; ++i) {
         for (int j = 0; j < cities_count; ++j) {
             scanf("%d", &cities[i][j]);
         }
     }
 
-    printf("Enter the starting city (index): ");
+    printf("Enter starting city (index): ");
     int start_city;
     scanf("%d", &start_city);
 
